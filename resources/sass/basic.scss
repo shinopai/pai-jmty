@@ -1,0 +1,30 @@
+@import './variables';
+
+/* basic style */
+*{
+  box-sizing: border-box;
+}
+html, body{
+  font-size: 62.5%;
+  font-family: 'HG創英角ゴシックUB';
+}
+a{
+  text-decoration: none;
+  color: $basic_text_color;
+}
+ul{
+  list-style: none;
+  padding-left: 0;
+}
+img{
+  display: block;
+}
+
+/* basic class */
+.wrap{
+  width: 80%;
+  margin: 0 auto;
+}
+.flex{
+  display: flex;
+}
