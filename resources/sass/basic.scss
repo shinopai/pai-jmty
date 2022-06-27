@@ -10,7 +10,6 @@ html, body{
 }
 a{
   text-decoration: none;
-  color: $basic_text_color;
 }
 ul{
   list-style: none;
@@ -23,8 +22,130 @@ img{
 /* basic class */
 .wrap{
   width: 80%;
+  max-width: 1200px;
   margin: 0 auto;
 }
 .flex{
   display: flex;
+}
+.vertical_padding{
+  padding: 50px 0;
+}
+.link_wrap{
+  display: contents;
+}
+.section_heading{
+  color: #000;
+  font-size: 2rem;
+}
+.blue_link{
+  color: #06C;
+  &:hover{
+    text-decoration: underline;
+  }
+}
+.contents{
+  display: contents;
+}
+
+/* logo */
+.basic__logo{
+  width: 120px;
+  height: 35px;
+}
+
+/* search form */
+.basic__searchform{
+  margin-top: 10px;
+}
+.basic__searchcontents{
+	position: relative;
+  dt{
+    	width:70%;
+	padding:4px;
+	background-color:#fff;
+	border:1px solid #aaa;
+	position: absolute;
+  }
+  dd{
+    	position: absolute;
+	top:0;
+	right:3.3em;
+	width:28%;
+  }
+}
+.basic__searchinput{
+	width:100%;
+	height:30px;
+	line-height:30px;
+	background:none;
+	border:none;
+}
+.basic__searchbutton{
+  	display:block;
+	height:40px;
+	color: $main_color;
+	line-height:40px;
+	text-align:center;
+	border:1px solid $main_color;
+	width: 100%;
+  font-size: 1.4rem;
+  font-weight: bold;
+  &:hover{
+    	background: $main_color;
+      color: #fff;
+  }
+}
+
+/* basic form */
+.form__wrap{
+  .basic__logo{
+    margin: 10px;
+  }
+}
+.basic__form{
+  width: 90%;
+  margin: 0 auto;
+  font-size: 1.6rem;
+  & + p {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 1.6rem;
+  }
+}
+.basic__form--item{
+  &:not(:last-child){
+    margin-bottom: 20px;
+  }
+}
+.basic__form--label{
+}
+.basic__form--input{
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  &::placeholder{
+    font-size: 1.6rem;
+  }
+}
+.basic__form--select{
+  width: 50%;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 1.4rem;
+}
+.basic__form--submit{
+  width: 100%;
+  max-width: 400px;
+  background-color: #d66522;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px;
+  display: block;
+  margin: 0 auto;
+  cursor: pointer;
+  &:hover{
+    opacity: 0.8;
+  }
 }
