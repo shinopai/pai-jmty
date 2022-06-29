@@ -2,6 +2,8 @@
 
 namespace App\Lib;
 
+use Illuminate\Support\Facades\Storage;
+
 class MyFunc
 {
   public static function isLoginOrRegister()
@@ -12,5 +14,9 @@ class MyFunc
     if($res == 'login' || $res2 == 'register'){
       return true;
     }
+  }
+
+  public static function isExistsImage($image){
+    return Storage::exists($image);
   }
 }

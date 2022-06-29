@@ -11,6 +11,10 @@ html, body{
 a{
   text-decoration: none;
 }
+p{
+  font-size: 1.6rem;
+  line-height: 1.8;
+}
 ul{
   list-style: none;
   padding-left: 0;
@@ -40,6 +44,11 @@ img{
 }
 .blue_link{
   color: #06C;
+  &:hover{
+    text-decoration: underline;
+  }
+}
+.basic_link{
   &:hover{
     text-decoration: underline;
   }
@@ -125,6 +134,16 @@ img{
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 10px;
+  font-size: 1.6rem;
+  &::placeholder{
+    font-size: 1.6rem;
+  }
+}
+.basic__form--textarea{
+  width: 100%;
+  resize: none;
+  padding: 10px;
+  font-size: 1.6rem;
   &::placeholder{
     font-size: 1.6rem;
   }
@@ -148,4 +167,64 @@ img{
   &:hover{
     opacity: 0.8;
   }
+}
+
+/* error message */
+.basic__text--error{
+  background-color: #F2BAB9;
+  color: #DC4342;
+  border: 3px solid #DC4342;
+  text-align: center;
+  padding: 10px;
+  font-size: 1.6rem;
+  li{
+    margin-top: 10px;
+  }
+}
+
+/* flash message */
+.basic__text--flash{
+  background-color: #A8F1C6;
+  color: #1B2E1F;
+  border: 3px solid #1B2E1F;
+  text-align: center;
+  padding: 10px;
+  font-size: 1.6rem;
+}
+
+/* basic horizontal rule */
+.basic__hr{
+  background-color:#CCC;
+  margin-top: 5px;
+}
+
+/* footer */
+.footer__wrap{
+  background-color: #F0EFF5;
+}
+.footer__inner{
+  width: 90%;
+  margin: 0 auto;
+  &.vertical_padding{
+    padding: 50px 0 15px;
+  }
+}
+.footer__flex--wrap{
+  font-size: 1.4rem;
+  display: flex;
+  justify-content: center;
+  font-size: 1.4rem;
+  li{
+    padding: 0 15px;
+    &:not(:first-child){
+      border-left: 1px solid #88338A;
+    }
+  }
+}
+.footer__text--copyrights{
+  font-size: 1.2rem;
+  color: #666;
+  margin: 20px;
+  display: block;
+  text-align: center;
 }

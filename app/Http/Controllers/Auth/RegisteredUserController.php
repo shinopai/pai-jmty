@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
+use Illuminate\Support\Facades\Storage;
 
 class RegisteredUserController extends Controller
 {
@@ -33,34 +34,29 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request)
     {
-        if($file = $request->profile_image){
-            $file_name = $file->getClientOriginalName();
-            $target_path = public_path('profiles/');
-            $file->move($target_path, $fileName);
-        } else {
-            $file_name = "";
-        }
-
         $request->validate([
             'nickname' => ['required', 'string', 'max:10', 'unique:users'],
             'email' => ['required', 'string', 'email', 'unique:users'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'profile_image' => ['image|file'],
+            'profile_image' => ['image', 'file'],
             'place' => ['required', 'string']
         ]);
 
+        $image = request()->file('profile_image')->getClientOriginalName();
+        request()->file('profile_image')->storeAs('public/profile', $image);
+
         $user = User::create([
-            'name' => $request->name,
+            'nickname' => $request->nickname,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'profile_image' => $file_name,
-            'place' => $request->$request->place
+            'profile_image' => $image,
+            'place' => $request->place
         ]);
 
         event(new Registered($user));
 
         Auth::login($user);
 
-        return redirect(RouteServiceProvider::HOME);
+        return redirect(RouteServiceProvider::HOME)->with('flash', '会員登録が完了しました');
     }
 }

@@ -46,6 +46,17 @@
     color: #fff;
   }
 }
+.header__postlink{
+  font-size: 1.4rem;
+  font-weight: bold;
+  background-color: $main_color;
+  color: #fff;
+  border-radius: 5px;
+  padding: 5px 10px;
+  &:hover{
+    opacity: 0.8;
+  }
+}
 
 /* front main visual */
 #front__mainvisual{
@@ -85,7 +96,7 @@
       content: '\03E';
     }
   }
-  .section-heading{
+  .section_heading{
     display: inline-block;
     padding-left: 10px;
     vertical-align: middle;
@@ -122,5 +133,134 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+  }
+}
+
+/* categories */
+.category__contents--wrap{
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: 20px;
+}
+.category__contents{
+  width: 15%;
+}
+.category__title{
+  font-size: 1.8rem;
+  font-weight: bold;
+  position: relative;
+  padding-left: 20px;
+  &::before{
+    content: '';
+    background: url('/images/ico_front01.png') no-repeat;
+    background-size: cover;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: -0.1em;
+  }
+}
+.category__number{
+  font-size: 1.2rem;
+  color: #666;
+}
+
+/* item detail */
+.itemdetail__wrap{
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.itemdetail__before{
+  width: 70%;
+}
+.itemdetail__after{
+  width: 30%;
+}
+.itemdetail__title{
+  font-size: 2rem;
+  font-weight: bold;
+  display: inline-block;
+}
+.itemdetail__id{
+  font-size: 1.2rem;
+}
+.itemdetail__image{
+  margin-top: 85px;
+}
+.itemdetail__text--comment{
+    margin-top: 70px;
+    font-size: 1.4rem;
+    width: 80%;
+}
+.itemdetail__text--date{
+  font-size: 1.2rem;
+  color: #666;
+  text-align: right;
+}
+.itemdetail__someinfo{
+  margin-top: 30px;
+  dt{
+    font-size: 1.2rem;
+  }
+  dd{
+    font-size: 1.8rem;
+    font-weight: bold;
+    padding-left: 40px;
+  }
+}
+.itemdetail__text--usercomment{
+  margin-top: 60px;
+  font-size: 1.2rem;
+}
+
+/* user profile */
+.profile__wrap{
+  margin: 0 auto;
+}
+.profile__title{
+  font-size: 1.8rem;
+  font-weight: bold;
+  border-bottom: 1px solid #C9C9C9;
+  padding-bottom: 5px;
+}
+.profile__inner{
+  display: flex;
+  gap: 30px;
+  padding-top: 25px;
+}
+.profile__before{
+  width: 70%;
+  .flex{
+    gap: 15px;
+    align-items: flex-start;
+  }
+  .profile__image{
+    width: 20%;
+    border: 1px solid #C9C9C9;
+  }
+  .profile__text--comment{
+    width: 80%;
+    border: 1px solid #C9C9C9;
+    padding: 5px;
+  }
+}
+.profile__after{
+  width: 30%;
+}
+.profile__someinfo{
+  dt{
+    font-size: 1.3rem;
+  }
+  dd{
+    font-size: 1.2rem;
+    padding-left: 30px;
+    &:not(:last-child){
+      margin-bottom: 10px;
+    }
   }
 }

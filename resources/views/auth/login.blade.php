@@ -4,6 +4,8 @@
 
     <div class="form__wrap">
         <a href="{{ url('/') }}" class="contents"><img src="{{ asset('images/logo_front01.svg') }}" alt="logo_front01" srcset="" class="basic__logo"></a>
+    <!-- error message -->
+    <x-auth-validation-errors :errors="$errors" />
         <div class="wrap vertical_padding">
             <form action="{{ url('/login') }}" method="post" class="basic__form" enctype="multipart/form-data">
               @csrf
