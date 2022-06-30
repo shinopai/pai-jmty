@@ -41,4 +41,25 @@ class ItemController extends Controller
 
         return view('items.show', compact('user', 'item', 'total_items'));
     }
+
+    public function search(Request $request){
+        $query = Item::query();
+        $search_word = $request->keyword;
+        $category_id = $request->category_id;
+
+        $query->where('name', 'LIKE', '%'.$search_word.'%');
+
+        if($category_id != null){
+            $query->where('category_id', $category_id);
+            $category = Category::find($category_id)->name;
+        }else{
+            $category = '全カテゴリー';
+        }
+
+        $items = $query->paginate(50);
+        $total_items = Item::count();
+        $categories = Category::all();
+
+        return view('items.result', compact('items', 'search_word', 'category_id', 'category', 'total_items', 'categories'));
+    }
 }

@@ -8,13 +8,13 @@
     <div class="profile__inner">
       <div class="profile__before">
         <div class="flex">
-          @if(MyFunc::isExistsImage($user->profile_image))
+          @if(MyFunc::isExistsProfileImage($user->profile_image))
           <img src="{{ asset('storage/profile/'.$user->profile_image) }}" alt="{{ $user->nickname }}" srcset="" class="profile__image">
           @else
           <img src="{{ asset('images/profile.png') }}" alt="{{ $user->nickname }}" srcset="" class="profile__image">
           @endif
           @empty($user->comment)
-          <p class="profile__text--comment">自己紹介文が入力されていません。</p>
+          <p class="profile__text--comment plane">自己紹介文が入力されていません。</p>
           @else
           <p class="profile__text--comment">{{ $user->comment }}</p>
           @endempty

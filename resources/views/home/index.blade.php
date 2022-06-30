@@ -7,10 +7,18 @@
   <div id="front__mainvisual">
     <div class="wrap vertical_padding">
       <a href="{{ url('/') }}" class="link_wrap"><img src="{{ asset('images/logo_front01.svg') }}" alt="logo_front01" srcset="" class="basic__logo"></a>
-      <form action="#" method="get" class="basic__searchform">
+      <form action="{{ route('items.search') }}" method="get" class="basic__searchform">
         <dl class="basic__searchcontents">
-          <dt><input type="text" name="search" value="" placeholder="何をお探しですか？" class="basic__searchinput" /></dt>
-          <dd><button class="basic__searchbutton">検索</button></dd>
+          <dt><input type="text" name="keyword" value="" placeholder="何をお探しですか？" class="basic__searchinput" /></dt>
+          <dd>
+            <select name="category_id" class="basic__search--category">
+              <option value="" selected>カテゴリー</option>
+              @foreach($categories as $category)
+              <option value="{{ $category->id }}">{{ $category->name }}</option>
+              @endforeach
+            </select>
+          </dd>
+          <dd><button type="submit" class="basic__searchbutton">検索</button></dd>
         </dl>
       </form>
       <p class="front__maintitle--large">必要なものを必要な人へ</p>
