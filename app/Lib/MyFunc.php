@@ -25,7 +25,7 @@ class MyFunc
   }
 
   public static function characterLimit($text){
-    $limit = 50;
+    $limit = 100;
 
     if(mb_strlen($text) > $limit) {
       $title = mb_substr($text, 0, $limit);

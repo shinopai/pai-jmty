@@ -68,8 +68,8 @@
       <div class="category__contents--wrap flex">
         @foreach($categories as $category)
         <div class="category__contents">
-          <h3 class="category__title"><a href="" class="basic_link">{{ $category->name }}</a></h3>
-          <span class="category__number">12345件</span>
+          <h3 class="category__title"><a href="{{ route('items.category', ['category' => $category]) }}" class="basic_link">{{ $category->name }}</a></h3>
+          <span class="category__number">{{ $category->items->count() }}件</span>
         </div>
         @endforeach
       </div>

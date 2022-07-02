@@ -67,6 +67,34 @@ img {
   display: contents;
 }
 
+.like__button {
+  width: 140px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: 1px solid #f4f46a;
+  border-radius: 5px;
+  position: relative;
+  text-align: right;
+  padding: 10px 15px;
+  margin-left: auto;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+.like__icon {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  position: absolute;
+  top: calc(50% - 10px);
+  left: 0.3em;
+}
+
+.like__text--number {
+  font-weight: normal;
+  margin-left: 5px;
+}
+
 /* logo */
 .basic__logo {
   width: 120px;
@@ -650,6 +678,10 @@ img {
 .result__contents--place,
 .result__contents--category {
   color: #666;
+}
+
+.result__contents--comment {
+  font-size: inherit;
 }
 
 .result__contents--date.updated {

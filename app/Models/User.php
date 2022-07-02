@@ -50,4 +50,9 @@ class User extends Authenticatable
     public function items(){
         return $this->hasMany(Item::class);
     }
+
+    public function middleItems()
+    {
+        return $this->belongsToMany(Item::class);
+    }
 }

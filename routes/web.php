@@ -14,6 +14,9 @@ Route::resource('users.items', ItemController::class)->except('index');
 // search
 Route::get('/search', [ItemController::class, 'search'])->name('items.search');
 
+// all items per category
+Route::get('/categories/{category}', [ItemController::class, 'showAllPerCategory'])->name('items.category');
+
 // user profile
 Route::get('/profiles/{user}', [UserController::class, 'showProfile'])->name('users.profile');
 

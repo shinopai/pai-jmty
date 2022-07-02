@@ -11,11 +11,12 @@
       <p class="itemdetail__text--comment">{{ $item->comment }}</p>
     </div>
     <div class="itemdetail__after">
+      <div id="like_area"></div>
       <p class="itemdetail__text--date">更新{{ $item->updated_at->format('Y年m月d日 H時i分') }}</p>
       <p class="itemdetail__text--date">作成{{ $item->created_at->format('Y年m月d日 H時i分') }}</p>
       <dl class="itemdetail__someinfo">
         <dt>価格</dt>
-        <dd>{{ $item->price }}円</dd>
+        <dd>{{ number_format($item->price) }}円</dd>
         <dt>取引場所</dt>
         <dd>{{ $item->user->place }}</dd>
         <dt>ジャンル</dt>
@@ -28,3 +29,8 @@
     </div>
   </div>
 </x-guest-layout>
+
+<script>
+  // vs code上はエラーになってるけど、変数はvueに渡ってるので問題無し
+  var itemId = @json($item->id);
+</script>

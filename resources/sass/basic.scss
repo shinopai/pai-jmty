@@ -56,6 +56,31 @@ img{
 .contents{
   display: contents;
 }
+.like__button{
+  width: 140px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: 1px solid $main_color;
+  border-radius: 5px;
+  position: relative;
+  text-align: right;
+  padding: 10px 15px;
+  margin-left: auto;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+.like__icon{
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  position: absolute;
+  top: calc(50% - 20px / 2);
+  left: 0.3em;
+}
+.like__text--number{
+  font-weight: normal;
+  margin-left: 5px;
+}
 
 /* logo */
 .basic__logo{

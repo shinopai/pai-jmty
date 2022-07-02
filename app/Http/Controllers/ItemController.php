@@ -62,4 +62,12 @@ class ItemController extends Controller
 
         return view('items.result', compact('items', 'search_word', 'category_id', 'category', 'total_items', 'categories'));
     }
+
+    public function showAllPerCategory(Category $category){
+        $items = Item::where('category_id', $category->id)->paginate(50);
+        $total_items = Item::count();
+        $category_name = Category::find($category->id)->name;
+
+        return view('items.category', compact('items', 'total_items', 'category_name'));
+    }
 }

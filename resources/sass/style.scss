@@ -349,6 +349,9 @@
 .result__contents--category{
   color: #666;
 }
+.result__contents--comment{
+  font-size: inherit;
+}
 .result__contents--date{
   &.updated{
     color: #666;
