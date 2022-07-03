@@ -5,14 +5,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\LikeController;
 use Illuminate\Support\Facades\Auth;
 
-// Route::get('/user', function (Request $request) {
-//     if(Auth::check()){
-//         return Auth::id();
-//     }else{
-//         return 'not logged in';
-//     }
-// });
-
 // get current user id
 Route::get('/current_user_id', function(){
     if(Auth::check()){
