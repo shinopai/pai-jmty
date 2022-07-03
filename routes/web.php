@@ -26,3 +26,8 @@ Route::get('/profiles/{user}', [UserController::class, 'showProfile'])->name('us
 // })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+// measures for mixed content
+if (config('app.env') === 'production' or config('app.env') === 'heroku') {
+    URL::forceScheme('https');
+}
