@@ -20,7 +20,6 @@ Route::get('/categories/{category}', [ItemController::class, 'showAllPerCategory
 // user profile
 Route::get('/profiles/{user}', [UserController::class, 'showProfile'])->name('users.profile');
 
-
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth'])->name('dashboard');

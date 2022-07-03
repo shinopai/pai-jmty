@@ -42,8 +42,14 @@ class RegisteredUserController extends Controller
             'place' => ['required', 'string']
         ]);
 
-        $image = request()->file('profile_image')->getClientOriginalName();
-        request()->file('profile_image')->storeAs('public/profile', $image);
+        if (config('app.env') === 'heroku') {
+          if($request->hasFile('item_image')){
+            $image = request()->file('item_image')->getClientOriginalName();
+            Storage::disk('s3')->putFile('/', $image);
+        }else{
+            $image = request()->file('profile_image')->getClientOriginalName();
+            request()->file('profile_image')->storeAs('public/profile', $image);
+        }
 
         $user = User::create([
             'nickname' => $request->nickname,

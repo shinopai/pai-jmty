@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreItem;
+use Illuminate\Support\Facades\Storage;
 use App\Models\User;
 use App\Models\Item;
 use App\Models\Category;
@@ -18,9 +19,16 @@ class ItemController extends Controller
     }
 
     public function store(StoreItem $request, User $user){
-        if($request->hasFile('item_image')){
+        if (config('app.env') === 'heroku') {
+          if($request->hasFile('item_image')){
             $image = request()->file('item_image')->getClientOriginalName();
-            request()->file('item_image')->storeAs('public/item', $image);
+            Storage::disk('s3')->putFile('/', $image);
+        }
+        }else{
+            if($request->hasFile('item_image')){
+                $image = request()->file('item_image')->getClientOriginalName();
+                request()->file('item_image')->storeAs('public/item', $image);
+            }
         }
 
         $category_id = Category::find($request->category_id)->value('id');
