@@ -66,3 +66,4 @@ class RegisteredUserController extends Controller
         return redirect(RouteServiceProvider::HOME)->with('flash', '会員登録が完了しました');
     }
 }
+}
